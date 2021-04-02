@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "80bd7395-c8e2-472d-bd8c-4a65f46f9e13",
+		"name": "CT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create content from pdf",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZTM4ZmQxMzNhMGM3NTZiMGFiMWIxZCIsImRhdGUiOiIyMDE5LTA2LTA0VDA1OjMyOjIzLjI5OVoiLCJpYXQiOjE1NTk2MjYzNDN9.i9Mqd_Th4l5dfmT61siaRsFa9oefKodYABlBQMVLSgY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ho ho ho",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/parthacharya/Downloads/Pranav_Bhardwaj_Resume.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://ctapi.kilobytetech.com/api/folder/:folderId/addPdf",
+					"protocol": "https",
+					"host": [
+						"ctapi",
+						"kilobytetech",
+						"com"
+					],
+					"path": [
+						"api",
+						"folder",
+						":folderId",
+						"addPdf"
+					],
+					"variable": [
+						{
+							"key": "folderId",
+							"value": "5cf50da733a0c756b0ab1b23"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"parth\",\n\t\"password\" : \"123456\",\n\t\"email\" : \"parthka@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "https://ctapi.kilobytetech.com/api/user/signup",
+					"protocol": "https",
+					"host": [
+						"ctapi",
+						"kilobytetech",
+						"com"
+					],
+					"path": [
+						"api",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"password\" : \"123456\",\n\t\"email\" : \"parthka@gmail.com\"\n}"
+				},
+				"url": {
+					"raw": "{{ct_path}}/api/user/login",
+					"host": [
+						"{{ct_path}}"
+					],
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjY2ZkZmM1MTI0NDg5MjYyNTQ1OTgwZSIsImRhdGUiOiIyMDE5LTA1LTA2VDA3OjE4OjI5LjEyMloiLCJpYXQiOjE1NTcxMjcxMDl9.th6MCSJuWILYQS4EbJRbvhtVgRKwUCZeQ5f7C3ZP7C8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Testing Folder\"\n}"
+				},
+				"url": {
+					"raw": "https://ctapi.kilobytetech.com/api/folder",
+					"protocol": "https",
+					"host": [
+						"ctapi",
+						"kilobytetech",
+						"com"
+					],
+					"path": [
+						"api",
+						"folder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get folders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Testing Folder\"\n}"
+				},
+				"url": {
+					"raw": "https://ctapi.kilobytetech.com/api/folder",
+					"protocol": "https",
+					"host": [
+						"ctapi",
+						"kilobytetech",
+						"com"
+					],
+					"path": [
+						"api",
+						"folder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjY2M0MDM2OTZmOTI5MWNkYmQxZjI0OCIsImRhdGUiOiIyMDE5LTA1LTAzVDE0OjA5OjU1LjM3NVoiLCJpYXQiOjE1NTY4OTI1OTV9.4xKa6b_JEdSfGXXODMCAHtbR38CTRitBRQW-12EKTWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Testing Folder 1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:7000/api/folder/:folderId",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"folder",
+						":folderId"
+					],
+					"variable": [
+						{
+							"key": "folderId",
+							"value": "5ccc4c812f82121e2845796d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete folder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjY2M0MDM2OTZmOTI5MWNkYmQxZjI0OCIsImRhdGUiOiIyMDE5LTA1LTAzVDE0OjA5OjU1LjM3NVoiLCJpYXQiOjE1NTY4OTI1OTV9.4xKa6b_JEdSfGXXODMCAHtbR38CTRitBRQW-12EKTWA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Testing Folder 1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:7000/api/folder/:folderId",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"folder",
+						":folderId"
+					],
+					"variable": [
+						{
+							"key": "folderId",
+							"value": "5ccc4bf72f82121e2845796c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get folder by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Testing Folder\"\n}"
+				},
+				"url": {
+					"raw": "localhost:7000/api/folder/5ccfdfe0124489262545980f",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"folder",
+						"5ccfdfe0124489262545980f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get sessions by file",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7000/api/session?file=5cd162aec12f66162333d922",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"session"
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "5cd162aec12f66162333d922"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User files",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"Testing Folder\"\n}"
+				},
+				"url": {
+					"raw": "localhost:7000/api/user/files",
+					"host": [
+						"localhost"
+					],
+					"port": "7000",
+					"path": [
+						"api",
+						"user",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create content from html",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjZTM4ZmQxMzNhMGM3NTZiMGFiMWIxZCIsImRhdGUiOiIyMDE5LTA2LTA0VDA1OjMyOjIzLjI5OVoiLCJpYXQiOjE1NTk2MjYzNDN9.i9Mqd_Th4l5dfmT61siaRsFa9oefKodYABlBQMVLSgY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Ho ho ho",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"value": null,
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://ctapi.kilobytetech.com/api/folder/:folderId/addPdf",
+					"protocol": "https",
+					"host": [
+						"ctapi",
+						"kilobytetech",
+						"com"
+					],
+					"path": [
+						"api",
+						"folder",
+						":folderId",
+						"addPdf"
+					],
+					"variable": [
+						{
+							"key": "folderId",
+							"value": "5cf50da733a0c756b0ab1b23"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
