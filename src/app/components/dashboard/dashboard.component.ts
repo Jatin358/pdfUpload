@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+import { ViewContentService } from 'src/app/services/view-content.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,8 @@ export class DashboardComponent implements OnInit {
   imageForm: FormGroup;
 
   constructor(private fileUploadService: FileUploadService,
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder,
+    private viewContentService: ViewContentService) { }
 
   ngOnInit(): void {
     this.imageForm = this.formBuilder.group({
@@ -35,6 +37,13 @@ uploadFileToActivity() {
     }, error => {
       console.log(error);
     });
+}
+
+viewUploadedFiles(){
+  let data = {};
+
+  data = {'name': "User Files"}
+  this.viewContentService.viewContent(data).subscribe();
 }
 
 }
