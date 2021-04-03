@@ -30,7 +30,6 @@ export class DashboardComponent implements OnInit {
 }
 uploadFileToActivity() {
   this.fileUploadService.postFile(this.fileToUpload).subscribe(data => {
-    // do something, if upload success
     console.log(data);
     
     }, error => {
