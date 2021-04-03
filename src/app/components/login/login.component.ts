@@ -37,6 +37,11 @@ export class LoginComponent implements OnInit {
 
     this.loginService.loginRequest(data).subscribe((login) => {
       if(login && login.message == 'Login Successfull'){
+        let appToken = login.data.token;
+        let id = login.data._id;
+        console.log(appToken);
+        localStorage.setItem('appToken', appToken);
+        localStorage.setItem('id', id);
         this.router.navigate(['/','dashboard']);
       }else if(login.message == 'Login Failed'){
         setTimeout(()=>{              

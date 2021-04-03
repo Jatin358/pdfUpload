@@ -7,9 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
+  url: string = 'https://ctapi.kilobytetech.com/api/user/login';
+
   constructor(private httpClient: HttpClient) { }
 
   loginRequest(data: any): Observable<any>{
-    return this.httpClient.post<any>('https://ctapi.kilobytetech.com/api/user/login', data);
+    return this.httpClient.post<any>(this.url, data);
   }
 }

@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<form [formGroup]="imageForm" (ngSubmit)="uploadFileToActivity()">
+    <div class="form-group">
+        <label for="file">Choose File</label>
+        <input type="file"
+                name="profile"
+               (change)="handleFileInput($event.target.files)">
+    </div>
+
+    <button type="submit" >
+        Submit
+    </button>
+
+</form>
